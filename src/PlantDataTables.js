@@ -24,11 +24,11 @@ export default function PlantDataTables(){
     return (
         <div >
           <br></br>
-          <table style={{ float: 'right', marginRight: '200px' }}>
-            <thead>
-              SCADA VALUE
-            </thead>
-            <tbody>
+          <table className="NEMTable" style={{ float: 'right', marginTop:'20px', marginRight: '200px', fontSize:'20px' }}>
+            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
+              NEM DATA (MW)
+            </thead> 
+            <tbody style={{fontWeight:'bold'}}>
               {Object.entries(responseSCADA).map(([index, value]) => (
                 <tr key={index}>
                   <td>{value}</td>
@@ -36,11 +36,11 @@ export default function PlantDataTables(){
               ))}
             </tbody>
           </table>
-          <table style={{ float: 'right', marginRight: '30px' }}>
-            <thead>
-              Power Stations
+          <table style={{ float: 'right', marginTop:'20px' , marginRight: '30px', fontSize:'20px' }}>
+            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
+              POWER STATIONS
             </thead>
-            <tbody>
+            <tbody style={{fontWeight:'bold'}}>
               {Object.entries(responseDUID).map(([index, value]) => (
                 <tr key={index}>
                   <td>{value}</td>
