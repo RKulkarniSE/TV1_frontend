@@ -4,9 +4,11 @@ import FetchData from "./FetchData"
 export default function PlantDataTables(){
     const [responseDUID, setResponseDUID] = useState({})
     const [responseSCADA, setResponseSCADA] = useState({})
+    const [responseCAPACITY, setResponseCAPACITY] = useState({})
 
     FetchData('SCADA', responseSCADA, setResponseSCADA)
-    FetchData('DUID', responseDUID, setResponseDUID) 
+    FetchData('DUID', responseDUID, setResponseDUID)
+    FetchData('CAPACITY', responseCAPACITY, setResponseCAPACITY) 
     useEffect(() => {
       // Function to reload the page every 5 minutes (300,000 milliseconds)
       const reloadPage = () => {
@@ -47,6 +49,18 @@ export default function PlantDataTables(){
                 </tr>
               ))}
             </tbody>
+          </table>
+          <table style={{float:'right', marginTop:'20px', marginRight:'-530px', fontSize:'20px'}}>
+          <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
+              CAPACITY (MW)
+          </thead>
+          <tbody style={{fontWeight:'bold'}}>
+            {Object.entries(responseCAPACITY).map(([index, value]) => (
+              <tr key={index}>
+                <td>{value}</td>
+              </tr>
+            ))}
+          </tbody>
           </table>
         </div>
       );
