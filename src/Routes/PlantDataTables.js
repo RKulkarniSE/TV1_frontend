@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from "react"
-import FetchData from "./FetchData"
+import FetchData from "../FetchData"
 
 export default function PlantDataTables(){
     const [responseDUID, setResponseDUID] = useState({})
     const [responseSCADA, setResponseSCADA] = useState({})
     const [responseCAPACITY, setResponseCAPACITY] = useState({})
 
-    FetchData('SCADA', responseSCADA, setResponseSCADA)
-    FetchData('DUID', responseDUID, setResponseDUID)
-    FetchData('CAPACITY', responseCAPACITY, setResponseCAPACITY) 
+    FetchData('TV1/SCADA', responseSCADA, setResponseSCADA)
+    FetchData('TV1/DUID', responseDUID, setResponseDUID)
+    FetchData('TV1/CAPACITY', responseCAPACITY, setResponseCAPACITY) 
     useEffect(() => {
       // Function to reload the page every 5 minutes (300,000 milliseconds)
       const reloadPage = () => {
