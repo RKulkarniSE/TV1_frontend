@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import FetchData from "../FetchData"
+import map from '../NEMMap.png'
 
 export default function PlantDataTables(){
     const [responseDUID, setResponseDUID] = useState({})
@@ -25,8 +26,10 @@ export default function PlantDataTables(){
     }, []);
     return (
         <div >
+          <img src={map} width={1000} style={{marginRight:'1700px', marginTop:'200px'}}/>
           <br></br>
-          <table className="NEMTable" style={{ float: 'right', marginTop:'20px', marginRight: '200px', fontSize:'20px' }}>
+
+          <table className="NEMTable" style={{ float: 'right', marginTop:'-850px', marginRight: '200px', fontSize:'20px' }}>
             <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
               NEM DATA (MW)
             </thead> 
@@ -38,7 +41,7 @@ export default function PlantDataTables(){
               ))}
             </tbody>
           </table>
-          <table style={{ float: 'right', marginTop:'20px' , marginRight: '30px', fontSize:'20px' }}>
+          <table style={{ float: 'right', marginTop:'-850px' , marginRight: '30px', fontSize:'20px' }}>
             <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
               POWER STATIONS
             </thead>
@@ -50,7 +53,7 @@ export default function PlantDataTables(){
               ))}
             </tbody>
           </table>
-          <table style={{float:'right', marginTop:'20px', marginRight:'-530px', fontSize:'20px'}}>
+          <table style={{float:'right', marginTop:'-850px', marginRight:'-530px', fontSize:'20px'}}>
           <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
               CAPACITY (MW)
           </thead>

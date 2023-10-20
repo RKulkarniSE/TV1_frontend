@@ -16,7 +16,4 @@ export default function FetchData(param, responseData, setResponseData){
         
       }, []) 
   
-      useEffect(() => {
-        console.log(responseData)
-      }, [responseData])
 }
