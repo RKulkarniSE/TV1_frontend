@@ -1,7 +1,8 @@
-You have 2 options to running the frontend.
+Current solution
+Due to the sensitive nature of the footprints data, the webpages will be
+served locally. However due to this the Hotline laptop will have to install Node JS. 
 
-1. Use GitHub codespaces: This option is if you don't want to install dependencies, packages and you don't want to worry
-about the software setup too much and you simply want to run the frontend as it currently is. Refer to "GitHub Setup" instructions
+This will allow the Hotline laptop to serve static JS and html files. 
+This solution will make sure that the webpage runs locally on the company network.
 
-2. Clone the repo to your local machine. This option is for people that want to make changes to the code and add features, or 
-you want to learn about how this works and you're just curious. Refer to "Local Setup" instructions
+Once this is done, double click the setup.bat file to run the frontend
