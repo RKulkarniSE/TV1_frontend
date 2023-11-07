@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import FetchData from "../FetchData"
+import {FetchData} from "../FetchData"
 import map from '../NEMMap.png'
 
 export default function PlantDataTables(){

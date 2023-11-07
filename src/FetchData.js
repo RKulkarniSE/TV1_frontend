@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-export default function FetchData(param, responseData, setResponseData){
+export function FetchData(param, responseData, setResponseData){
     useEffect(() => {
         fetch(`http://127.0.0.1:8080/${param}`)
         .then(res => {
@@ -16,4 +16,15 @@ export default function FetchData(param, responseData, setResponseData){
         
       }, []) 
   
+}
+
+export function FetchKPIs(param, start_date, end_date, data, setData) {
+  fetch(`http://127.0.0.1:8080/${param}?start_date=${start_date}-23&end_date=${end_date}`)
+    .then(response => response.json())
+    .then(data => {
+      setData(data); // Update state with the fetched data
+    })
+    .catch(error => {
+      console.error('Error fetching data from the server:', error);
+  });
 }
