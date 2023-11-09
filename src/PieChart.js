@@ -10,8 +10,8 @@ export function PieChart(inputData, header){
         
         <div>
             <Chart 
-                width={'500px'}
-                height={'300px'}
+                width={'600px'}
+                height={'400px'}
                 chartType="PieChart"
                 data={dataArray}
             />

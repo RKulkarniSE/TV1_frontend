@@ -35,7 +35,7 @@ export default function PlantDataTables(){
             </thead> 
             <tbody style={{fontWeight:'bold'}}>
               {Object.entries(responseSCADA).map(([index, value]) => (
-                <tr key={index}>
+                <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
                   <td>{value}</td>
                 </tr>
               ))}
@@ -47,7 +47,7 @@ export default function PlantDataTables(){
             </thead>
             <tbody style={{fontWeight:'bold'}}>
               {Object.entries(responseDUID).map(([index, value]) => (
-                <tr key={index}>
+                <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
                   <td>{value}</td>
                 </tr>
               ))}
@@ -59,7 +59,7 @@ export default function PlantDataTables(){
           </thead>
           <tbody style={{fontWeight:'bold'}}>
             {Object.entries(responseCAPACITY).map(([index, value]) => (
-              <tr key={index}>
+              <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
                 <td>{value}</td>
               </tr>
             ))}

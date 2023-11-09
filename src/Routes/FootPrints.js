@@ -9,6 +9,8 @@ export default function Footprints(){
     const [account, setAccount] = useState({})
     const [product, setProduct] = useState({})
 
+    const font = '20px'
+
     FetchData('/FOOTPRINTS/ASSIGNEES', assignees, setAssignees)
     FetchData('/FOOTPRINTS/SUBMITTED', submitted, setSubmitted)
     FetchData('/FOOTPRINTS/STATUS', status, setStatus) 
@@ -31,83 +33,33 @@ export default function Footprints(){
         };
       }, []);
 
-      return(
-        <div style={{display:'flex'}}>
-            <table style={{marginTop:'20px', marginRight: '200px', fontSize:'15px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              Assignees
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(assignees).map(([index, value]) => (
-                <tr key={index}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <table style={{marginTop:'20px' , marginLeft: '-190px', fontSize:'15px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              Date Submitted
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(submitted).map(([index, value]) => (
-                <tr key={index}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <table style={{marginTop:'20px' , marginLeft: '20px', fontSize:'15px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              Status
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(status).map(([index, value]) => (
-                <tr key={index}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          
-          <table style={{marginTop:'20px' , marginLeft: '20px', fontSize:'15px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              Ticket No
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(ticket).map(([index, value]) => (
-                <tr key={index}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <table style={{marginTop:'20px' , marginLeft: '20px', fontSize:'15px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              Account
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(account).map(([index, value]) => (
-                <tr key={index}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-
-          <table style={{marginTop:'20px' , marginLeft: '20px', fontSize:'15px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              Product
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(product).map(([index, value]) => (
-                <tr key={index}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      return (
+        <div style={{ display: 'flex' }}>
+            <table style={{ marginTop: '20px', fontSize: font}}>
+                <thead style={{fontSize: '20px', fontWeight: 'bold' }}>
+                    <tr>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Assignees</th>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Submitted</th>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Status</th>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Ticket</th>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Account</th>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Product</th>
+                    </tr>
+                </thead>
+                <tbody style={{ fontWeight: 'bold' }}>
+                    {Object.keys(assignees).map((index) => (
+                        <tr key={index} style={{ border: '1px solid black', backgroundColor: 'white', fontSize:'20px' }}>
+                            <td style={{ border: '1px solid black' }}>{assignees[index]}</td>
+                            <td style={{ border: '1px solid black', width:'150px' }}>{submitted[index]}</td>
+                            <td style={{ border: '1px solid black' }}>{status[index]}</td>
+                            <td style={{ border: '1px solid black' }}>{ticket[index]}</td>
+                            <td style={{ border: '1px solid black' }}>{account[index]}</td>
+                            <td style={{ border: '1px solid black' }}>{product[index]}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
-      )
+    );
+
 }
