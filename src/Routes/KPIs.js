@@ -46,13 +46,14 @@ export default function KPIs(){
             <br></br>
             <br></br>
             <br></br>
-            <input
+            <div style={{marginLeft:'-1200px'}} >Enter Range </div>
+            <input style={{marginLeft:'-1200px'}}
                 type="text"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
                 placeholder="Start Date"
             />
-            <input
+            <input 
                 type="text"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
@@ -60,10 +61,31 @@ export default function KPIs(){
             />
 
             <button onClick={handleClick}> Enter </button>
-            <div><b>Ticket Per Product</b> {PieChart(tickPerProd, 'Product')}</div> <br></br>
-            <div><b>Ticket per Site</b> {PieChart(tickPerSite, 'Site')}</div> <br></br>
-            <div><b>Ticket by Priority </b>{PieChart(tickByPri, 'Priority')}</div> <br></br>
-            <div><b>Top 5 Sites by Ticket Number </b>{topTickets}</div>
+            <div style={{marginLeft:'850px'}}>
+                <b>Ticket Per Product</b> 
+                {PieChart(tickPerProd, 'Product')}
+            </div> 
+            <div style={{marginLeft:'500px'}}>
+                <b>Ticket per Site</b> 
+                {PieChart(tickPerSite, 'Site')}
+            </div> 
+            <div style={{marginLeft:'1200px', marginTop:'-320px'}}>
+                <b>Ticket by Priority </b>
+                {PieChart(tickByPri, 'Priority')}
+            </div> 
+
+            <table style={{marginTop:'-400px' , marginLeft: '30px', fontSize:'15px', border: '1px solid black' }}>
+            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
+              Top 5 Sites By Ticket
+            </thead> 
+            <tbody style={{fontWeight:'bold'}}>
+              {Object.entries(topTickets).map(([index, value]) => (
+                <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
+                  <td>{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
             
         </div>
     )
