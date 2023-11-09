@@ -1,14 +1,28 @@
 import React, {useState, useEffect} from "react"
 import { FetchKPIs } from "../FetchData"
+import { PieChart } from "../PieChart"
 
 export default function KPIs(){
-    const [tickPerProd, setTickPerProd] = useState({})
-    const [tickPerSite, setTickPerSite] = useState({})
-    const [tickByPri, setTickByPri] = useState({})
-    const [topTickets, setTopTickets] = useState({})
+    // const [tickPerProd, setTickPerProd] = useState({})
+    // const [tickPerSite, setTickPerSite] = useState({})
+    // const [tickByPri, setTickByPri] = useState({})
+    // const [topTickets, setTopTickets] = useState({})
 
-    const [startDate, setStartDate] = useState({})
-    const [endDate, setEndDate] = useState({})
+    const [tickPerProd, setTickPerProd] = useState(
+        JSON.parse(localStorage.getItem("tickPerProd")) || {}
+      )
+      const [tickPerSite, setTickPerSite] = useState(
+        JSON.parse(localStorage.getItem("tickPerSite")) || {}
+      )
+      const [tickByPri, setTickByPri] = useState(
+        JSON.parse(localStorage.getItem("tickByPri")) || {}
+      )
+      const [topTickets, setTopTickets] = useState(
+        JSON.parse(localStorage.getItem("topTickets")) || {}
+      )
+
+    const [startDate, setStartDate] = useState(localStorage.getItem('startDate') || '')
+    const [endDate, setEndDate] = useState(localStorage.getItem('endDate') || '')
 
     const handleClick = () => {
         FetchKPIs('/KPI/TICKET_PER_PRODUCT', startDate, endDate, tickPerProd, setTickPerProd)
@@ -17,6 +31,16 @@ export default function KPIs(){
         FetchKPIs('/KPI/TOP_TICKET_SITES', startDate, endDate, topTickets, setTopTickets)
 
     }
+
+    useEffect(() => {
+        localStorage.setItem("tickPerProd", JSON.stringify(tickPerProd));
+        localStorage.setItem("tickPerSite", JSON.stringify(tickPerSite));
+        localStorage.setItem("tickByPri", JSON.stringify(tickByPri));
+        localStorage.setItem("topTickets", JSON.stringify(topTickets));
+        localStorage.setItem("startDate", startDate);
+        localStorage.setItem("endDate", endDate);
+      }, [tickPerProd, tickPerSite, tickByPri, topTickets, startDate, endDate])
+
     return(
         <div>
             <br></br>
@@ -36,10 +60,10 @@ export default function KPIs(){
             />
 
             <button onClick={handleClick}> Enter </button>
-            <div><b>Ticket Per Product</b> {JSON.stringify(tickPerProd)}</div> <br></br>
-            <div><b>Ticket per Site</b> {JSON.stringify(tickPerSite)}</div> <br></br>
-            <div><b>Ticket by Priority </b>{JSON.stringify(tickByPri)}</div> <br></br>
-            <div><b>Top 5 Sites by Ticket Number </b>{JSON.stringify(topTickets)}</div>
+            <div><b>Ticket Per Product</b> {PieChart(tickPerProd, 'Product')}</div> <br></br>
+            <div><b>Ticket per Site</b> {PieChart(tickPerSite, 'Site')}</div> <br></br>
+            <div><b>Ticket by Priority </b>{PieChart(tickByPri, 'Priority')}</div> <br></br>
+            <div><b>Top 5 Sites by Ticket Number </b>{topTickets}</div>
             
         </div>
     )
