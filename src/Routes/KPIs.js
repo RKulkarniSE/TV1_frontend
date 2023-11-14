@@ -62,21 +62,22 @@ export default function KPIs(){
             />
 
             <button style={{fontSize:'20px'}} onClick={handleClick}> Enter </button>
-            <div style={{marginLeft:'1250px', marginTop:'-100px'}}>
-                <b style={{fontSize:'20px', marginLeft:'10px'}}>Ticket Per Product</b> 
-                {PieChart(tickPerProd, 'Product')}
-            </div> 
-            <div style={{marginTop:'10px',marginLeft:'500px'}}>
-                <b style={{fontSize:'20px', marginLeft:'-700px'}}>Ticket per Site</b> 
-                {PieChart(tickPerSite, 'Site')}
-                
-            </div> 
-            <div style={{marginLeft:'1250px', marginTop:'-390px'}}>
-                <b style={{fontSize:'20px'}}>Ticket by Priority </b>
-                {PieChart(tickByPri, 'Priority')}
-            </div> 
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px', marginTop:'10px' }}>
+            <div>
+              <b style={{fontSize:'25px'}}>Ticket Per Product</b> 
+              {PieChart(tickPerProd, 'Product')}
+            </div>
+            <div>
+              <b style={{fontSize:'25px'}}>Ticket per Site</b> 
+              {PieChart(tickPerSite, 'Site')}
+            </div>
+            <div>
+              <b style={{fontSize:'25px'}}>Ticket by Priority </b>
+              {PieChart(tickByPri, 'Priority')}
+            </div>
+          </div>
 
-            <table style={{marginTop:'-800px' , marginLeft: '800px', fontSize:'25px', border: '1px solid black' }}>
+          <table style={{ marginLeft: '800px', marginTop:'20px', fontSize:'25px', border: '1px solid black' }}>
             <thead style={{backgroundColor: '#34ebeb', fontSize:'25px', fontWeight:'bold'}}>
               Top 5 Sites By Ticket
             </thead> 
@@ -87,7 +88,7 @@ export default function KPIs(){
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table>  
             
         </div>
     )
