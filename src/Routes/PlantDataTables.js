@@ -25,47 +25,28 @@ export default function PlantDataTables(){
       };
     }, []);
     return (
-        <div >
-          <img src={map} width={1000} style={{marginRight:'1700px', marginTop:'200px'}}/>
-          <br></br>
-
-          <table className="NEMTable" style={{ float: 'right', marginTop:'-850px', marginRight: '200px', fontSize:'20px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              NEM DATA (MW)
-            </thead> 
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(responseSCADA).map(([index, value]) => (
-                <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <table style={{ float: 'right', marginTop:'-850px' , marginRight: '30px', fontSize:'20px' }}>
-            <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              POWER STATIONS
-            </thead>
-            <tbody style={{fontWeight:'bold'}}>
-              {Object.entries(responseDUID).map(([index, value]) => (
-                <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <table style={{float:'right', marginTop:'-850px', marginRight:'-530px', fontSize:'20px'}}>
+      <div>
+        <img src={map} width={1000} style={{marginRight:'1700px', marginTop:'200px'}}/>
+        <br></br>
+        <table style={{ fontSize:'20px', marginLeft:'1300px', marginTop:'-850px', border: '1px solid black' }}>
           <thead style={{backgroundColor: '#34ebeb', fontSize:'20px', fontWeight:'bold'}}>
-              CAPACITY (MW)
+            <tr>
+              <th style={{border: '1px solid black', padding:'4px', backgroundColor: '#34ebeb'}}>POWER STATIONS</th>
+              <th style={{border: '1px solid black', backgroundColor: '#34ebeb'}}>NEM DATA (MW)</th>
+              <th style={{border: '1px solid black', backgroundColor: '#34ebeb'}}>CAPACITY (MW)</th>
+            </tr>
           </thead>
           <tbody style={{fontWeight:'bold'}}>
-            {Object.entries(responseCAPACITY).map(([index, value]) => (
-              <tr key={index} style={{border: '1px solid black', backgroundColor:'white'}}>
-                <td>{value}</td>
+            {Object.entries(responseSCADA).map(([index, value], i) => (
+              <tr key={index} style={{border: '1px solid black'}}>
+                <td style={{backgroundColor:'white', border: '1px solid black'}}>{responseDUID[i]}</td>
+                <td style={{backgroundColor: value === 0 ? 'red': 'white', border: '1px solid black'}}>{value}</td>
+                <td style={{backgroundColor:'white', border: '1px solid black'}}>{responseCAPACITY[i]}</td>
               </tr>
             ))}
           </tbody>
-          </table>
-        </div>
+        </table>
+      </div>
       );
         
 } 
