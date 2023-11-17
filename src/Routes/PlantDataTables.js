@@ -46,7 +46,8 @@ export default function PlantDataTables(){
             ))}
           </tbody>
         </table>
-      </div>
+        <img src={backupMap} width={1000} style={{marginLeft:'1300px', marginTop:'-850px'}}/>
+      </div>     
       );
         
 } 
