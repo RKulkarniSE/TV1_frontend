@@ -47,11 +47,12 @@ export default function Footprints(){
                     </tr>
                 </thead>
                 <tbody style={{ fontWeight: 'bold' }}>
-                    {Object.keys(assignees).map((index) => (
+                    {Object.keys(assignees).map(([index]) => (
                         <tr key={index} style={{ border: '1px solid black', backgroundColor: 'white', fontSize:'20px' }}>
                             <td style={{ border: '1px solid black' }}>{assignees[index]}</td>
                             <td style={{ border: '1px solid black', width:'150px' }}>{submitted[index]}</td>
-                            <td style={{ border: '1px solid black' }}>{status[index]}</td>
+                            <td style={{ border: '1px solid black',
+                             backgroundColor: status[index] == 'In Progress' ? 'orange' : (status[index] == 'Resolved' ? '#10c239' : 'white') }}>{status[index]}</td>
                             <td style={{ border: '1px solid black' }}>{ticket[index]}</td>
                             <td style={{ border: '1px solid black' }}>{account[index]}</td>
                             <td style={{ border: '1px solid black' }}>{product[index]}</td>
