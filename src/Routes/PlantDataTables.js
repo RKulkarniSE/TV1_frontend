@@ -26,13 +26,33 @@ export default function PlantDataTables(){
       };
     }, []);
 
+    const countZeros = (values) => {
+      return (values.filter(value => value === 0).length/(values.length));
+    }
+    
+    const gradient = (count) => {
+
+      switch(count) {
+        case 1: return 'red';
+        case 0.75: return 'linear-gradient(to left, green 25%, red 75%)';
+        case 0.5: return 'linear-gradient(to left, green 50%, red 50%)';
+        case 0.25: return 'linear-gradient(to left, green 75%, red 25% )';
+        default: return 'green';
+      }
+    }
 
     return (
       <div>
-        {/* <img src={map} width={1000} style={{marginRight:'1700px', marginTop:'200px'}}/> */}
         <img src={backupMap} width={1000} style={{marginLeft:'-910px', marginTop:'50px'}}/>
-        <div style={{ position: 'absolute', top: '400px', left: '750px', backgroundColor: (responseSCADA[9] == 0 || responseSCADA[8] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
-        <span><b>Callide</b></span>
+        <div style={{ 
+          position: 'absolute', 
+          top: '400px',
+          left: '750px', 
+          padding: '6px', 
+          borderRadius: '10px',
+          background: gradient(countZeros([responseSCADA[9], responseSCADA[8]]))
+          }}>
+          <span><b>Callide</b></span>
         </div>
 
         <div style={{ position: 'absolute', top: '250px', left: '750px', backgroundColor: (responseSCADA[21] == 0 || responseSCADA[22] == 0 || responseSCADA[23] == 0 || responseSCADA[24] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
@@ -55,7 +75,14 @@ export default function PlantDataTables(){
         <span><b>Osborne</b></span>
         </div>
 
-        <div style={{ position: 'absolute', top: '150px', left: '700px', backgroundColor: (responseSCADA[1] == 0 || responseSCADA[2] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
+        <div style={{ 
+          position: 'absolute', 
+          top: '150px',
+          left: '700px', 
+          padding: '6px', 
+          borderRadius: '10px',
+          background: gradient(countZeros([responseSCADA[1], responseSCADA[2]]))
+          }}>
           <span><b>Barron Gorge</b></span>
         </div>
 
@@ -63,11 +90,25 @@ export default function PlantDataTables(){
           <span><b>Braemar</b></span>
         </div>
 
-        <div style={{ position: 'absolute', top: '540px', left: '880px', backgroundColor: (responseSCADA[18] == 0 || responseSCADA[19] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
+        <div style={{ 
+          position: 'absolute', 
+          top: '540px', 
+          left: '880px', 
+          padding: '6px', 
+          borderRadius: '10px',
+          background: gradient(countZeros([responseSCADA[19], responseSCADA[18]]))
+          }}>
         <span><b>Oakey</b></span>
         </div>
 
-        <div style={{ position: 'absolute', top: '590px', left: '710px', backgroundColor: (responseSCADA[4] == 0 || responseSCADA[5] == 0 || responseSCADA[6] == 0 || responseSCADA[7] == 0) ? 'red':'green', padding: '6px', borderRadius: '10px' }}>
+        <div style={{ 
+        position: 'absolute', 
+        top: '590px', 
+        left: '710px', 
+        padding: '6px', 
+        borderRadius: '10px',
+        background: gradient(countZeros([responseSCADA[4], responseSCADA[5], responseSCADA[6], responseSCADA[7]]))
+        }}>
           <span><b>Bayswater</b></span>
         </div>
 
@@ -75,12 +116,28 @@ export default function PlantDataTables(){
           <span><b>Vales Point</b></span>
         </div>
 
-        <div style={{ position: 'absolute', top: '660px', left: '780px', backgroundColor: (responseSCADA[16] == 0 || responseSCADA[17] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
+        <div style={{ 
+          position: 'absolute', 
+          top: '660px', 
+          left: '780px',
+          padding: '6px', 
+          borderRadius: '10px',
+          background: gradient(countZeros([responseSCADA[16], responseSCADA[17]]))
+          }}>
           <span><b>Mt Piper</b></span>
         </div>
-        <div style={{ position: 'absolute', top: '660px', left: '640px', backgroundColor: (responseSCADA[30] == 0 || responseSCADA[31] == 0 || responseSCADA[32] == 0 || responseSCADA[33] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
+
+        <div style={{ 
+          position: 'absolute', 
+          top: '660px', 
+          left: '640px', 
+          padding: '6px', 
+          borderRadius: '10px',
+          background: gradient(countZeros([responseSCADA[30], responseSCADA[31], responseSCADA[32], responseSCADA[33]]))
+          }}>
           <span><b>Uranquinity</b></span>
         </div>
+
         <div style={{ position: 'absolute', top: '720px', left: '770px', backgroundColor: (responseSCADA[25] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
           <span><b>Tallawarra</b></span>
         </div>
@@ -89,11 +146,25 @@ export default function PlantDataTables(){
           <span><b>Loy Yang</b></span>
         </div>
 
-        <div style={{ position: 'absolute', top: '730px', left: '610px', backgroundColor: (responseSCADA[14] == 0 || responseSCADA[15] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
+        <div style={{ 
+          position: 'absolute', 
+          top: '730px', 
+          left: '610px', 
+          padding: '6px', 
+          borderRadius: '10px',
+          background: gradient(countZeros([responseSCADA[14], responseSCADA[15]]))
+          }}>
           <span><b>Mortlake</b></span>
         </div>
 
-        <div style={{ position: 'absolute', top: '770px', left: '610px', backgroundColor: (responseSCADA[11] == 0 || responseSCADA[12] == 0) ? 'red': 'green', padding: '6px', borderRadius: '10px' }}>
+        <div style={{ 
+        position: 'absolute', 
+        top: '770px', 
+        left: '610px', 
+        padding: '6px', 
+        borderRadius: '10px',
+        background: gradient(countZeros([responseSCADA[11], responseSCADA[12]]))
+        }}>
           <span><b>Laverton North</b></span>
         </div>
 

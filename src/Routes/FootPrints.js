@@ -43,7 +43,7 @@ export default function Footprints(){
                         <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Status</th>
                         <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Ticket</th>
                         <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Account</th>
-                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Product</th>
+                        <th style={{ border: '1px solid black', backgroundColor: '#34ebeb' }}>Title</th>
                     </tr>
                 </thead>
                 <tbody style={{ fontWeight: 'bold' }}>
