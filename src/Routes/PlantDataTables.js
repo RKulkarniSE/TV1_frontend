@@ -7,7 +7,7 @@ export default function PlantDataTables(){
     const [responseDUID, setResponseDUID] = useState({})
     const [responseSCADA, setResponseSCADA] = useState({})
     const [responseCAPACITY, setResponseCAPACITY] = useState({})
-
+    
     FetchData('TV1/SCADA', responseSCADA, setResponseSCADA)
     FetchData('TV1/DUID', responseDUID, setResponseDUID)
     FetchData('TV1/CAPACITY', responseCAPACITY, setResponseCAPACITY) 
@@ -30,7 +30,7 @@ export default function PlantDataTables(){
       <div>
         <img src={backupMap} width={1000} style={{marginLeft:'-910px', marginTop:'50px'}}/>
         
-        {PlantDataStation('400px', '750px', 'Callide', [responseSCADA[9], responseSCADA[8]])}
+        {PlantDataStation('400px', '750px', 'Callide', [responseSCADA[8], responseSCADA[9]])}
 
         {PlantDataStation('250px', '750px', 'Stanwell', [responseSCADA[21], responseSCADA[22], responseSCADA[23], responseSCADA[24]])}
 

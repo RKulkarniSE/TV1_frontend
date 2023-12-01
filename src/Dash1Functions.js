@@ -14,7 +14,7 @@ export function PlantDataStation(top, left, station_name, scada_values){
     )
 }
 
-export function Gradient(count){
+function Gradient(count){
     switch(count){
         case 1: return 'red';
         case 0.75: return 'linear-gradient(to left, green 25%, red 75%)';
@@ -24,6 +24,6 @@ export function Gradient(count){
     }
 }
 
-export function CountZeros(values){
+function CountZeros(values){
     return (values.filter(value => value === 0).length/(values.length));
 }
