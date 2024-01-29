@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {FetchData} from "../FetchData"
-import { PlantDataStation} from "../Dash1Functions"
+import { PlantDataStation, units} from "../Dash1Functions"
 import backupMap from '../AUSMap.png'
 
 export default function PlantDataTables(){
@@ -12,12 +12,11 @@ export default function PlantDataTables(){
     FetchData('TV1/DUID', responseDUID, setResponseDUID)
     FetchData('TV1/CAPACITY', responseCAPACITY, setResponseCAPACITY) 
     useEffect(() => {
-      // Function to reload the page every 5 minutes (300,000 milliseconds)
       const reloadPage = () => {
         window.location.reload();
       };
   
-      // Set up a timer to reload the page every 5 minutes
+      // Set up a timer to reload the page every 5 minutes (300000 milliseconds)
       const refreshInterval = 300000; 
       const refreshTimer = setTimeout(reloadPage, refreshInterval);
   
@@ -30,9 +29,9 @@ export default function PlantDataTables(){
       <div>
         <img src={backupMap} width={1000} style={{marginLeft:'-910px', marginTop:'50px'}}/>
         
-        {PlantDataStation('400px', '750px', 'Callide', [responseSCADA[8], responseSCADA[9]])}
+        {PlantDataStation('400px', '750px', 'Callide', [responseSCADA[units.CALLIDE_B1], responseSCADA[units.CALLIDE_B2]])}
 
-        {PlantDataStation('250px', '750px', 'Stanwell', [responseSCADA[21], responseSCADA[22], responseSCADA[23], responseSCADA[24]])}
+        {PlantDataStation('250px', '750px', 'Stanwell', [responseSCADA[units.STANWELL_1], responseSCADA[units.STANWELL_2], responseSCADA[units.STANWELL_3], responseSCADA[units.STANWELL_4]])}
 
         {PlantDataStation('430px', '850px', 'Tarong', [responseSCADA[26], responseSCADA[27], responseSCADA[28], responseSCADA[29]])}
 
@@ -48,7 +47,7 @@ export default function PlantDataTables(){
         
         {PlantDataStation('540px', '880px', 'Oakey', [responseSCADA[19], responseSCADA[18]])}
 
-        {PlantDataStation('590px', '710px', 'Bayswater', [responseSCADA[4], responseSCADA[5], responseSCADA[6], responseSCADA[7]])}
+        {PlantDataStation('590px', '710px', 'Bayswater', [responseSCADA[units.BAYSWATER_1], responseSCADA[units.BAYSWATER_2], responseSCADA[units.BAYSWATER_3], responseSCADA[units.BAYSWATER_4]])}
         
         {PlantDataStation('620px', '760px', 'Vales Point', [responseSCADA[34], responseSCADA[35]])}
 
