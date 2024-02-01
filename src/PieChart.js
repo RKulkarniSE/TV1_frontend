@@ -14,10 +14,17 @@ export function PieChart(inputData, header){
                 height={'400px'}
                 chartType="PieChart"
                 data={dataArray}
+                options={{
+                    chartArea: {
+                        left: '10%',
+                        top: '10%',
+                        width: '80%',
+                        height: '80%'
+                    },
+                    fontSize: 20
+                }}
             />
         </div>
     )
     
 }
-
-// 2020-03-23  2020-11-11
