@@ -65,3 +65,18 @@ function Gradient(count){
 function CountZeros(values){
     return (values.filter(value => value === 0).length/(values.length));
 }
+
+export function DisconnectedStation(top, left, station_name){
+    return(
+        <div style={{
+            position: 'absolute',
+            top: top,
+            left: left,
+            padding: '6px',
+            borderRadius: '10px',
+            background: 'orange'
+        }}>
+            <span><b>{station_name}</b></span>
+        </div>
+    )
+}

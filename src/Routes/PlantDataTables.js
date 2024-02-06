@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {FetchData} from "../FetchData"
-import { PlantDataStation, units} from "../Dash1Functions"
+import { PlantDataStation, units, DisconnectedStation} from "../Dash1Functions"
 import backupMap from '../AUSMap.png'
 
 export default function PlantDataTables(){
@@ -28,6 +28,17 @@ export default function PlantDataTables(){
     return (
       <div>
         <img src={backupMap} width={1000} style={{marginLeft:'-910px', marginTop:'50px'}}/>
+
+        
+        {DisconnectedStation('430px', '100px', 'Yarnima')}
+
+        {DisconnectedStation('650px', '100px', 'Neerabup')}
+        
+        {DisconnectedStation('730px', '100px', 'Muja')}
+
+        {DisconnectedStation('690px', '100px', 'KMK CoGen')}
+
+        {DisconnectedStation('350px', '600px', 'Diamantina')}
         
         {PlantDataStation('400px', '750px', 'Callide', [responseSCADA[units.CALLIDE_B1], responseSCADA[units.CALLIDE_B2]])}
 
